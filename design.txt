@@ -1,0 +1,30 @@
+// Kyle Reed
+// Prof. Wu
+// COS-231-300
+// 30 October 2024
+
+
+// Gate Level
+module xor_gate(input A, input B, output Y);
+    assign Y = A ^ B;
+endmodule
+
+// RTL Level
+module xor_gate_rtl(input wire A, input wire B, output reg Y);
+    always @* begin
+        Y = A ^ B;
+    end
+endmodule
+
+// Behavioral Level with If-Else
+module xor_gate_behavior(input A, input B, output reg Y);
+    always @(*) begin
+        if (A == 1 && B == 0) begin
+            Y = 1; // A is true, B is false
+        end else if (A == 0 && B == 1) begin
+            Y = 1; // A is false, B is true
+        end else begin
+            Y = 0; // Both are either true or false
+        end
+    end
+endmodule
